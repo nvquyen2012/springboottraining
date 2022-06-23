@@ -3,7 +3,6 @@ package com.example.jpa.controller;
 import com.example.jpa.entity.User;
 import com.example.jpa.model.BasePageRequest;
 import com.example.jpa.service.UserService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getUser(@RequestHeader("permission") String permissionName, BasePageRequest pageRequest) {
-        return ResponseEntity.ok(userService.getList(permissionName, pageRequest));
+    public ResponseEntity<?> getUser(@RequestHeader(value = "permission", required = false) String permissionName, BasePageRequest pageRequest) {
+        return ResponseEntity.ok(userService.getList(permissionName, pageRequest).getContent());
     }
 }

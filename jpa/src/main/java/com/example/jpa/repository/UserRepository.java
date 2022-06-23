@@ -10,7 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
-    @Query("Select u from User u left join u.permissions p where 1 = 1 and (:pName is Null or p.name = :pName)")
-    Page<User> findByPermissionName(@Param("pName") String permissionName, Pageable pageable);
+    Page<User> findUserByPermissions_Name(String permissionName, Pageable pageable);
 }

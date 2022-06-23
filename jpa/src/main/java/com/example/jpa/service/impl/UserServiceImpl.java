@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Autowired
-    private UserServiceImpl(UserRepository userRepository){
+    private UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -27,6 +27,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> getList(String permissionName, BasePageRequest request) {
         PageRequest pageRequest = PageRequest.of(request.getPage(), request.getSize());
-        return userRepository.findByPermissionName(permissionName, pageRequest);
+        if (permissionName != null) {
+            return userRepository.findUserByPermissions_Name(permissionName, pageRequest);
+        } else return userRepository.findAll(pageRequest);
     }
 }
