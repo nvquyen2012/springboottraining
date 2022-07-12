@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jpa/jpa.iml" filepath="$PROJECT_DIR$/jpa/jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session2/session2.iml" filepath="$PROJECT_DIR$/session2/session2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springboottraining.iml" filepath="$PROJECT_DIR$/.idea/springboottraining.iml" />
     </modules>
   </component>
